@@ -60,6 +60,21 @@ function sumOfDigits(num){
 // become keys). If there is more than key for that given value
 // create an array.
 
-
-
+function invert(obj) {
+    let result = {};
+    let entries = Object.entries(obj)
+    for (let key in obj) {
+        let arr = [];
+        entries.filter(function (el) {
+            if (obj[key] == el[1]) {
+                arr.push(el[0]);
+            }
+        });
+            result[obj[key]] = arr;
+    }
+    return result;
+}
+//task5
+// Create a function that builds a tree like object given an array with object which contains
+// parent and id properties.
 
