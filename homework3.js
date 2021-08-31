@@ -79,11 +79,23 @@ function invert(obj) {
 // parent and id properties.
 
 let treeNodes = [
-    { parent: null, id: 0 },
-    { parent: 0, id: 1 },
-    { parent: 0, id: 2 },
-    { parent: 1, id: 3 },
-    { parent: 1, id: 4 },
-    { parent: 2, id: 5 },
-    { parent: 4, id: 6 },
-  ];
+	{parent: null, id: 0},
+	{parent: 0, id: 1},
+	{parent: 0, id: 2},
+	{parent: 1, id: 3},
+	{parent: 1, id: 4},
+	{parent: 2, id: 5},
+	{parent: 4, id: 6},
+]
+
+function tree (array, n=null) {
+    let obj = {};
+    for (let i = 0; i < array.length; i++){
+        if (n === array[i].parent){
+            let nested = tree(array, array[i].id)
+            obj[array[i].id] = nested;
+        }
+    }
+    return obj;
+}
+console.log(tree(treeNodes))
